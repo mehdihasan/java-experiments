@@ -11,8 +11,8 @@ public class MyClass {
 		System.out.println(stringLengthLambda.getLength("Oroni Hasan"));
 	}
 	
+	@FunctionalInterface
 	interface StringLengthLambda {
 		int getLength(String s);
 	} 
-
 }
