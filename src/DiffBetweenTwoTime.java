@@ -8,6 +8,7 @@ public class DiffBetweenTwoTime {
 	public static void main(String[] args) {
 		DiffBetweenTwoTime diffBetweenTwoTime = new DiffBetweenTwoTime();
 		System.out.println("RES: " + diffBetweenTwoTime.hasDnEkspress("5:30", "9:00"));
+		System.out.println(diffBetweenTwoTime.printDateToday());
 	}
 	
 	public boolean hasDnEkspress(String validForm, String validTill) {
@@ -37,5 +38,12 @@ public class DiffBetweenTwoTime {
             return true;
         }
     		return false;
+    }
+    
+    private String printDateToday() {
+    		Calendar osloCal = getOsloCal();
+    		return osloCal.get(Calendar.DAY_OF_MONTH)
+    		        +"-"+ (osloCal.get(Calendar.MONTH) + 1)
+    		        + "-" + osloCal.get(Calendar.YEAR);
     }
 }
