@@ -3,6 +3,8 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +21,26 @@ public class MyDateTimeTest {
 		System.out.println(printConvertedTimeJava8(timeStamp));
 		
 		System.out.println(printConvertedTime(timeStamp));
+		
+		
+		Date date = new Date();
+		System.out.println(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(date));
+		System.out.println(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz").format(date));
+		
+		
+		Instant instant = date.toInstant();
+		LocalDateTime ldt = instant.atOffset(ZoneOffset.UTC).toLocalDateTime();
+		System.out.println(instant.atOffset(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT));
+		
+		
+		
+		ZonedDateTime now = ZonedDateTime.now(ZoneOffset.UTC);
+		ZonedDateTime later = ZonedDateTime.now(ZoneOffset.UTC).plusYears(1);
+		System.out.println(now.toString());
+		System.out.println(later.toString());
+		
+		//SimpleDateFormatter  DateTimeFormatter.ISO_LOCAL_DATE_TIME
+		
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////
