@@ -51,26 +51,33 @@ public class JsoupTester {
         doc.outputSettings().escapeMode(Entities.EscapeMode.xhtml);
         doc.outputSettings().prettyPrint(false);
 
+        // getting the body content as element
         Element element = doc.getElementsByTag("body").get(0).child(0);
+        
+        // getting the first node of body
         Node firstNode = doc.getElementsByTag("body").get(0).childNode(0);
         
+        // if body content wrapped inside a single div tag
         if (doc.getElementsByTag("body").get(0).childNodeSize() == 1
         		&& firstNode.nodeName().equalsIgnoreCase("div")) {
-            element = doc.getElementsByTag("body").get(0).child(0);
             element.attr("id", "root");		
-        } else {
+        } 
+        
+        // if the body contains multiple tag (not a sing tag) 
+        // & if wrapped by a single tag but it is not div
+        else {
             element = doc.createElement("div");
             element.attr("id", "root");
             element.append(html);
         }
         
+        // wrap the whole body content inside a new div tag (for future removal of the initial tag)
         Element elementToRemove = doc.createElement("div");
         elementToRemove.attr("id", "element-to-remove");
         elementToRemove.appendChild(element);
-
         content = elementToRemove.html().replaceAll("\n", "");
-
         content = content.replaceAll("<iframe([^<]*)/>", "<iframe $1></iframe>");
+        
         return content;
 	}
 	
