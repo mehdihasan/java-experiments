@@ -1,4 +1,4 @@
-package practice.network;
+package me.mh.network;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

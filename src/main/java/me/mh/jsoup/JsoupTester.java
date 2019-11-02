@@ -1,4 +1,4 @@
-package practice.jsoup;
+package me.mh.jsoup;
 
 
 import org.jsoup.Jsoup;

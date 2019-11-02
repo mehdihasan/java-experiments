@@ -1,4 +1,4 @@
-package practice.lambda;
+package me.mh.lambda;
 
 
 public class RunnableExample {

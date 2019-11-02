@@ -33,6 +33,7 @@ local.properties
 
 # sbteclipse plugin
 .target
+target/*
 
 # Tern plugin
 .tern-project
@@ -50,3 +51,6 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+
+#IDE
+.vscode/*
