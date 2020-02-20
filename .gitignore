@@ -54,3 +54,5 @@ target/*
 
 #IDE
 .vscode/*
+/target/
+*.classpath
